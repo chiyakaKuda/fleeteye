@@ -1,3 +1,14 @@
+/* Performance Optimizations */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -5,6 +16,13 @@ html, body {
     
 /* Add this to ensure only one scrollbar for vertical scrolling */
 overflow-y: auto; 
+}
+
+/* Critical CSS for above-the-fold content */
+body {
+    font-display: swap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html::-webkit-scrollbar-track {
@@ -499,3 +517,31 @@ color: #FF6B00;
     pointer-events: all;
     visibility: visible;
   }
+
+/* Mobile menu close button styles */
+#mobile-menu-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+#mobile-menu-close:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+#mobile-menu-close:active {
+    transform: rotate(90deg) scale(0.95);
+}
+
+/* Enhanced mobile menu overlay */
+.mobile-nav-overlay {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Mobile menu positioning */
+.mobile-nav-menu {
+    position: relative;
+}
