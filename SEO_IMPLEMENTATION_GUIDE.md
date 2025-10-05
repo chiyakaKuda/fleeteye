@@ -1,13 +1,13 @@
-# FleetEye Tracking Systems - SEO Implementation Guide
+# Fleet-Eye Tracking Systems - SEO Implementation Guide
 
 ## 🚀 High-Performance SEO Optimization for Zimbabwe & Africa
 
-This guide outlines the comprehensive SEO optimizations implemented for FleetEye Tracking Systems to achieve top rankings in Zimbabwe and across Africa.
+This guide outlines the comprehensive SEO optimizations implemented for Fleet-Eye Tracking Systems to achieve top rankings in Zimbabwe and across Africa.
 
 ## ✅ Completed Optimizations
 
 ### 1. Meta Tags & Title Optimization
-- **Primary Title**: "FleetEye Tracking Systems Zimbabwe | GPS Vehicle Tracking & Fleet Management Solutions"
+- **Primary Title**: "Fleet-Eye Tracking Systems Zimbabwe | GPS Vehicle Tracking & Fleet Management Solutions"
 - **Meta Description**: Optimized for Zimbabwe and African markets with key services and contact info
 - **Keywords**: Targeted GPS tracking, vehicle tracking, fleet management keywords for Zimbabwe
 - **Open Graph**: Complete social media optimization for Facebook, Twitter, LinkedIn
