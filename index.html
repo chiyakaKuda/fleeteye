@@ -92,7 +92,20 @@
             "latitude": "-19.015438",
             "longitude": "29.154857"
         },
-        "openingHours": "Mo-Su 00:00-23:59",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "17:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Saturday"],
+                "opens": "08:00",
+                "closes": "13:00"
+            }
+        ],
         "priceRange": "$$",
         "paymentAccepted": "Cash, Credit Card, Bank Transfer",
         "currenciesAccepted": "USD, ZIG",
@@ -1960,7 +1973,7 @@
                                         </div>
                                         <div>
                                             <p class="font-semibold">Business Hours</p>
-                                            <p class="text-white text-opacity-90">24/7 Support Available</p>
+                                            <p class="text-white text-opacity-90">Mon–Fri 08:00–17:00, Sat 08:00–13:00, Sun & Public Holidays Closed</p>
                                         </div>
                                     </div>
                                 </div>
