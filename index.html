@@ -2268,7 +2268,7 @@
                 
                 <!-- Enhanced Social Media Links -->
                 <div class="flex space-x-4">
-                    <a href="https://www.facebook.com/profile.php?id=61579443231825&sk=about" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="https://m.facebook.com/profile.php?id=61579443231825" target="_blank" rel="noopener noreferrer" aria-label="Fleet-Eye Facebook Page" data-fb-page-id="61579443231825" class="facebook-link w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                     <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition-all duration-300 transform hover:-translate-y-1">
@@ -2453,7 +2453,7 @@
      <!-- Social Icons Container - Positioned directly above toggle button -->
      <div id="social-icons" class="absolute bottom-14 right-0 w-14 transition-all duration-500 opacity-0 invisible pointer-events-none flex flex-col items-center">
         <!-- Facebook -->
-        <a href="https://www.facebook.com/profile.php?id=61579443231825&sk=about" class="absolute bottom-0 right-2 bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:shadow-lg transform hover:scale-110 transition-all duration-300 pointer-events-auto social-icon" 
+        <a href="https://m.facebook.com/profile.php?id=61579443231825" target="_blank" rel="noopener noreferrer" aria-label="Fleet-Eye Facebook Page" data-fb-page-id="61579443231825" class="facebook-link absolute bottom-0 right-2 bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:shadow-lg transform hover:scale-110 transition-all duration-300 pointer-events-auto social-icon" 
    style="transition-delay: 0.1s;" data-position="1" data-color="#2374E1">
     <i class="fab fa-facebook-f"></i>
 </a>
@@ -3231,6 +3231,52 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 </script>
+
+<script>
+    // Attempt to open Facebook app on mobile; fallback to mobile web profile
+    (function() {
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        function handleFacebookDeepLink(event) {
+            const anchor = event.currentTarget;
+            const pageId = anchor.getAttribute('data-fb-page-id');
+            if (!isMobile() || !pageId) return; // Desktop: let default behavior occur
+
+            event.preventDefault();
+
+            const appLink = `fb://page/${pageId}`;
+            const fallbackUrl = anchor.href || `https://m.facebook.com/profile.php?id=${pageId}`;
+
+            let didHide = false;
+            const hidden = document.hidden;
+            const visibilityHandler = () => {
+                didHide = true;
+            };
+            document.addEventListener('visibilitychange', visibilityHandler, { once: true });
+
+            const now = Date.now();
+            // Try opening the app
+            window.location.href = appLink;
+
+            // Fallback to mobile web if app not opened within 800ms
+            setTimeout(() => {
+                document.removeEventListener('visibilitychange', visibilityHandler, { once: true });
+                if (!didHide && Date.now() - now < 2000) {
+                    window.open(fallbackUrl, '_blank', 'noopener');
+                }
+            }, 800);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const fbLinks = document.querySelectorAll('a.facebook-link[data-fb-page-id]');
+            fbLinks.forEach(link => {
+                link.addEventListener('click', handleFacebookDeepLink);
+            });
+        });
+    })();
+    </script>
 
 </body>
 </html>
